@@ -1,0 +1,33 @@
+input.ng-invalid{
+    border-left: 5px solid red;
+}
+
+input.ng-valid{
+    border-left: 5px solid green;
+}
+
+.error{
+    margin-left: 15%;
+    color: red;
+}
+
+.successButton{
+    color: white;
+    background-color: green;
+    margin-left: 50%;
+    margin-top: 20px;
+}
+
+.loginWidget{
+    width:40vw;
+    height: 50vh;
+    margin-left: 30%;
+    margin-top: 10%;
+    background-color: gainsboro;
+    
+}
+
+input[type="text"],[type="password"],label{
+    width: 80%;
+    margin-left: 15%;
+}

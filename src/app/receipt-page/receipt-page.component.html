@@ -1,0 +1,132 @@
+<router-outlet></router-outlet>
+<div class="formBackGround">
+  
+  <table align="center">
+    <tr>
+      <td><h1><b>Travel Buddy Holidays</b></h1></td>
+    <tr>
+  </table>
+  <p *ngIf="outputDataSharedSuccess" class="alert alert-success">{{successMessage}}</p>
+  <p *ngIf="outputDataSharedFailed" class="alert alert-danger">{{failedMessage}}</p>
+  <form [formGroup]="travellingForm" (ngSubmit)="onSubmit()">
+  <table align="center">
+    <tr>
+      <td>
+          <table border="0" width="100%">
+            <tr>
+              <td align="center" width="150px" height="100px"><label>Agent Name:</label></td>
+              <td><input type="text" id="agentName" name="agentName" formControlName="agentName" class="form-control" placeholder="Agent Name" readonly></td>
+              <td align="center" width="150px" height="100px"><label>Bill Number</label></td>
+              <td><input type="text" id="billNumber" name="billNumber" formControlName="billNumber" class="form-control" placeholder="Bill Number"></td>
+            </tr>
+            <tr>
+              <td align="center" width="150px" height="100px"><label>Booking Date:</label></td>
+              <td><input type="date" id="bookingDate" name="bookingDate" formControlName="bookingDate" class="form-control" placeholder="Booking Date"></td>
+              <td align="center" width="150px" height="100px"><label>Travelling Date:</label></td>
+              <td><input type="date" id="travellingDate" name="travellingDate" formControlName="travellingDate"
+              class="form-control" placeholder="Travelling Date"></td>
+            </tr>
+            <tr>
+              <td align="center" width="150px" height="100px"><label>Bill To:</label></td>
+              <td><textarea rows="3" cols="50" id="billTo" name="billTo" formControlName="billTo" class="form-control" placeholder="Bill Details" ></textarea></td>
+              <!-- <span *ngIf="billToDetailsFlag" class="error">Please provide Bill To details</span> -->
+              <td align="center"><label>Mode of Travel:</label></td>
+              <td>
+                <div>
+                  <input type="radio" id="travelModeChoice1" name="TravelMode" value="Flight" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                  <label for="contactChoice1" style="font-size: 20px">Flight</label>
+                </div>
+                <div>
+                  <input type="radio" id="travelModeChoice2" name="TravelMode" value="Bus" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                  <label for="contactChoice2" style="font-size: 20px">Bus</label>
+                </div>
+                <div>
+                  <input type="radio" id="travelModeChoice3" name="TravelMode" value="Train" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                  <label for="contactChoice3" style="font-size: 20px">Train</label>
+                </div>
+                </td>
+            </tr>
+          </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table border="0" width="100%">
+            <tr>
+              <td align="center" width="150px" height="50px"><label>{{selectedValue}} Name</label></td>
+              <td><input type="text" placeholder="{{selectedValue}} name" [(ngModel)]="travellingModeDetails" [ngModelOptions]="{standalone: true}" >
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><label>PRN Number</label></td>
+              <td><input type="text" placeholder="PRN Number" [(ngModel)]="prnNumber" [ngModelOptions]="{standalone: true}">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><label>Ticket Number</label></td>
+              <td>
+                <input type="text" placeholder="Ticket Number" [(ngModel)]="ticketNumber" [ngModelOptions]="{standalone: true}">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><label>Ticket Amount</label></td>
+              <td>
+                <input type="number" placeholder="Ticket Amount" [(ngModel)]="ticketAmount" [ngModelOptions]="{standalone: true}" (keyup)="onKeyUp(ticketAmount)"
+                (keyup)="netPayableCalc(ticketAmount,serviceCharge,transactionCancelCharge)"/>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><label>Service Charge</label></td>
+              <td>
+                <input type="number" placeholder="Service Charge" [(ngModel)]="serviceCharge" [ngModelOptions]="{standalone: true}" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><label>Tran/Cancellation Charge</label></td>
+              <td>
+                <input type="number" ng-model="first" placeholder="Transaction/Cancellation Charge" [(ngModel)]="transactionCancelCharge" [ngModelOptions]="{standalone: true}"
+                (keyup)="netPayableCalc(ticketAmount,serviceCharge,transactionCancelCharge)">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100px" height="50px"><b>Net Payable</b></td>
+              <td>
+                <input type="number" placeholder="Net Payable" [(ngModel)]="netPayable" [ngModelOptions]="{standalone: true}" readonly>
+              </td>
+            </tr>
+          </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="right">
+        <div formArrayName="travellingList">
+         
+          <div>
+            <button type="button" (click)="addQuantity()" class="addUserStyle" [disabled]="buttonFlag">Add Passanger</button>
+          </div>
+          <div class="travelerListGenerator" style="margin-top: 20px;">
+            <div *ngFor="let quantity of travellingList().controls; let i=index" [formGroupName]="i">
+              <div style="float: left;">
+                <table>
+                  <tr>
+                    <td width="500px"><input type="text" formControlName="travelerName" class="form-control" placeholder="Traveler Name"></td>
+                    <td><input type="number" formControlName="age" class="form-control" placeholder="Age" /></td>
+                    <td><button (click)="removeQuantity(i)" class="btn btn-danger" style="height: 30px; background-color: rgb(190, 50, 50);">Remove</button></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" height="80px">
+        <div>
+          <button type="submit" class="successButton">Submit</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</div>

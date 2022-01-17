@@ -1,0 +1,161 @@
+.formBackGround{
+    background-color: #cdd4d3;
+    /*align-items: center;*/
+    height: 98%;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 1%;
+    font-size: large;
+    /*position: fixed;*/
+}
+.travelerListGenerator{
+    overflow-y: scroll;
+    margin-left:100px;
+    width: 800px;
+    float:left ;
+    position: center;
+    height: 280px;
+}
+.error{
+    color: red;
+}
+input.error { border: 1px solid #f00; }
+.addUserStyle{
+    background-color:grey;
+    color: white;
+    width: 200px;
+    height: 30px;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.successButton{
+    margin-top: 25px;
+    background-color: green;
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    /*margin-left: 40%;*/
+    color: white;
+    position: static;
+}
+
+/*.formFieldClass{
+    padding-left: 5%;
+}
+
+.spanPadding{
+    padding-left: 5%;
+}
+
+/* input{
+    width: 300px;
+    height: 20px;
+    margin-right: 20px;
+} */
+
+h1{
+    padding-top: 2%;
+    text-align: center;
+    text-size-adjust: 50px;
+}
+.removeButton{
+    background-color: red;
+    margin-left: 20px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+
+  /* Full-width input fields */
+/*input[type=text], input[type=password], input[type=date],input[type=number] {
+    width: 20%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    margin-right: 5%;
+    margin-left: 2%;
+    border: 3px solid #555;
+    margin-right: 60px;
+
+  }
+  .itemconfiguration
+  {   overflow-y:auto;
+      width:700px;
+      position:relative;
+      margin-left: 5px;
+  }
+
+  textarea {
+    width: 20%;
+    border: none;
+    background: #f1f1f1;
+    margin-right: 5%;
+    margin-left: 2%;
+    border: 3px solid #555;
+    overflow-y: scroll;
+    height: 50%;
+    resize: none; /* Remove this if you want the user to resize the textarea
+}
+
+.travelerListGenerator{
+    overflow-y: scroll;
+    margin-left:30px;
+    width: 800px;
+    float:left ;
+    position: relative;
+    height: 400px;
+}
+
+.billSection{
+    float: right;
+    height: 400px;
+    width: 850px;
+    margin-left: 30px;
+    overflow-y: scroll;
+}
+
+/*table, th, td ,tr{
+    border: 0px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    /*text-align: center;
+    height: 100px;
+  }
+
+.successButton{
+    margin-top: 25px;
+    background-color: green;
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    margin-left: 40%;
+    color: white;
+    position: static;
+}
+
+.label {
+  display: block;
+  width: 130px;
+}
+
+.addUserStyle{
+    background-color:grey;
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    margin-left: 40%;
+}*/

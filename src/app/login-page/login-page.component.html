@@ -1,0 +1,27 @@
+<div class="loginWidget">
+   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h1 style="margin-left: 30%;padding-top: 5%;"><b>Travel Buddy Holidays</b></h1>
+      <div class="form-group">
+         <label>
+            UserName
+         </label>
+         <input type="text" class="form-control" formControlName="userName" name="userName" placeholder="UserName" />
+         <span class="error" *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)">UserName is required</span>
+      </div>
+      <div class="form-group">
+         <label>
+            Password
+         </label>
+            <input type="password" class="form-control" formControlName="password" name="password" placeholder="password" />
+            <span class="error" *ngIf="password?.invalid && (password?.dirty || password?.touched)">Password is required</span>
+      </div>
+      <div class="form-group">
+            <button type="submit" class="successButton" style="align-items: center;" >Login</button>
+      </div>
+
+   </form>
+   <div class="alert alert-danger" role="alert" *ngIf="warningMessage">
+      Please provide correct username and password
+    </div>
+</div>
+
